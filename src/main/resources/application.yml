@@ -1,0 +1,75 @@
+server:
+  server.context-path: /
+  port: 8080
+  session-timeout: 60
+  tomcat.uri-encoding: UTF-8
+
+datasource:
+  type: com.alibaba.druid.pool.DruidDataSource # 使用druid数据源
+  write:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf-8
+    username: root
+    password: 1234qwer
+  read:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test01?useUnicode=true&amp;characterEncoding=utf-8
+    username: root
+    password: 1234qwer
+spring:
+  session:
+    redis:
+      namespace: my:demo
+#  redis:
+#    host: 127.0.0.1
+#    #host: 127.0.0.1
+#    port: 6379
+#    database: 0
+#    password: 1234qwer
+#    #password:
+#    timeout: 6000ms
+#    jedis:
+#      pool:
+#        max-idle: 100
+#        max-total: 100
+#        max-wait: 1000ms
+  redis:
+    cluster:
+      max-redirects: 3
+      nodes: 172.16.10.210:7001,172.16.10.210:7002,172.16.10.210:7003
+    jedis:
+      pool:
+         max-idle: 100
+         max-total: 600
+         max-wait: 1000ms
+    timeout: 3000ms
+  data:
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      database: test
+      password: 1234qwer
+    elasticsearch:
+      cluster-nodes: localhost:9300
+#      properties:
+#        http.enabled : true
+#        host: localhost
+#        port: 9300
+      repositories:
+        enabled: true
+
+# MyBatis
+mybatis:
+    typeAliasesPackage: com.example.**.entity
+    mapperLocations: classpath*:mapper/**/*.xml
+    configuration:
+      mapUnderscoreToCamelCase: true
+
+#logger
+logging:
+  file: logs/demo.log
+  level:
+    root: info
+    com.example.service.impl: debug
+
+
