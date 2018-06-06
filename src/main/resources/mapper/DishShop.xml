@@ -20,7 +20,7 @@
         values (#{name},#{code},#{brandDishId})
     </insert>
 
-    <select id="getDishShop" resultType="com.example.entity.DishBrand">
+    <select id="getDishShop" resultType="com.example.entity.DishShop">
         select
         <include refid="Base_Column_List"/>
         from dish_shop where id = #{id}

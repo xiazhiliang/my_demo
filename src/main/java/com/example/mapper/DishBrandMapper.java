@@ -13,5 +13,6 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface DishBrandMapper {
     Integer insert(DishBrand dishBrand);
+
     DishBrand getDishBrand(@Param("id")Long id);
 }

@@ -1,3 +1,10 @@
+
+spring:
+  application:
+    name: /
+  profiles:
+    active: localhost
+
 server:
   server.context-path: /
   port: 8080
@@ -16,7 +23,7 @@ datasource:
     url: jdbc:mysql://localhost:3306/test01?useUnicode=true&amp;characterEncoding=utf-8
     username: root
     password: 1234qwer
-spring:
+
   session:
     redis:
       namespace: my:demo
